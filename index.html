@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portafolio Personal - Desarrollador</title>
+    <!-- Font Awesome CDN for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-papbNQ/w452+iBuYT9FN39ya9PtdkkLgnNCx9Q9RC6eXzDPB8xIXkqGr4q3pRb7eDOGsy7GJZsx0NefF+eq2Vg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+        /* Blue palette: #0d6efd (primary), #0a58ca (dark), #dbe9ff (light) */
+        :root {
+            --primary-blue: #0d6efd;
+            --primary-blue-dark: #0a58ca;
+            --primary-blue-light: #dbe9ff;
+            --text-dark: #1a1a1a;
+            --bg-white: #fff;
+            --shadow-color: rgba(13, 110, 253, 0.25);
+        }
+        /* Reset & base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary-blue-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: var(--primary-blue-dark);
+        }
+        header {
+            background-color: var(--primary-blue);
+            color: var(--bg-white);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px var(--shadow-color);
+        }
+        nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+        }
+        nav h1 {
+            font-weight: 700;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        nav h1 i {
+            color: var(--primary-blue-light);
+            font-size: 1.8rem;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        nav ul li {
+            font-weight: 600;
+        }
+        nav ul li a {
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        nav ul li a i {
+            font-size: 1.1rem;
+        }
+        nav ul li a:hover {
+            color: var(--primary-blue-light);
+        }
+        main {
+            padding-top: 80px; /* To offset fixed header */
+            max-width: 1100px;
+            margin: 0 auto 4rem auto;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+        /* Section styles */
+        section {
+            background-color: var(--bg-white);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 10px var(--shadow-color);
+            transition: transform 0.3s ease;
+        }
+        section:hover {
+            transform: translateY(-5px);
+        }
+        section h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        /* Hero (Inicio) */
+        #inicio {
+            text-align: center;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(10, 88, 202, 0.7);
+        }
+        #inicio h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        #inicio p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 1.75rem auto;
+        }
+        #inicio img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-blue-light);
+            box-shadow: 0 0 20px rgba(255,255,255,0.4);
+            margin-bottom: 1.5rem;
+        }
+        /* Projects grid */
+        #proyectos .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+        }
+        .project-card {
+            background-color: var(--primary-blue-light);
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 4px 6px rgba(13, 110, 253, 0.3);
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 0.8rem;
+            box-shadow: 0 3px 6px rgba(10, 88, 202, 0.3);
+        }
+        .project-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-blue-dark);
+        }
+        .project-card p {
+            flex-grow: 1;
+            font-size: 0.9rem;
+            color: #333;
+        }
+        .project-card a {
+            margin-top: 0.8rem;
+            text-align: right;
+            font-weight: 600;
+            color: var(--primary-blue-dark);
+            transition: color 0.3s ease;
+        }
+        .project-card a:hover {
+            color: var(--primary-blue);
+        }
+        /* Experience lists */
+        ul.experience-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul.experience-list li {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 1.25rem;
+            border-left: 3px solid var(--primary-blue);
+        }
+        ul.experience-list li i {
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--primary-blue-dark);
+            font-size: 1.3rem;
+        }
+        ul.experience-list li strong {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            color: var(--primary-blue-dark);
+        }
+        ul.experience-list li span {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.2rem 0;
+            color: #333;
+            font-size: 0.9rem;
+            border-top: 1px solid #ddd;
+            margin-top: 2rem;
+        }
+        /* Responsive nav for smaller screens */
+        @media (max-width: 700px) {
+            nav {
+                flex-wrap: wrap;
+            }
+            nav h1 {
+                flex-basis: 100%;
+                justify-content: center;
+                margin-bottom: 0.8rem;
+            }
+            nav ul {
+                flex-basis: 100%;
+                justify-content: center;
+                gap: 1.2rem;
+                flex-wrap: wrap;
+            }
+            main {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1><i class="fas fa-code"></i> Mi Portafolio</h1>
+            <ul>
+                <li><a href="#inicio"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="#proyectos"><i class="fas fa-folder-open"></i> Proyectos</a></li>
+                <li><a href="#experiencia-academica"><i class="fas fa-graduation-cap"></i> Experiencia Académica</a></li>
+                <li><a href="#experiencia-personal"><i class="fas fa-briefcase"></i> Experiencia Personal</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="inicio" aria-label="Sección de inicio">
+            <img src="https://i.pravatar.cc/140" alt="Foto de Perfil" />
+            <h1>Hola, soy Byron Lòpez</h1>
+            <p>Desarrollador web apasionado por crear experiencias digitales creativas y funcionales. Especializado en JavaScript, React y desarrollo full stack.</p>
+            <p>Este es mi portafolio personal donde comparto mis proyectos y experiencia profesional.</p>
+        </section>
+
+        <section id="proyectos" aria-label="Sección de proyectos">
+            <h2><i class="fas fa-folder-open"></i> Proyectos Destacados</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <img src="https://source.unsplash.com/400x250/?code,technology" alt="Proyecto 1" />
+                    <h3>App de Tareas</h3>
+                    <p>Una aplicación web para gestión de tareas con autenticación y almacenamiento en la nube.</p>
+                    <a href="#" target="_blank" rel="noopener noreferrer">Ver proyecto <i class="fas fa-arrow-right"></i></a>
+                </article>
+                <article class="project-card">
+                    <img src="https://source.unsplash.com/400x250/?website,design" alt="Proyecto 2" />
+                    <h3>Portafolio Personal</h3>
+                    <p>Mi sitio web personal construido con React y estilos modernos para mostrar mis habilidades.</p>
+                    <a href="#" target="_blank" rel="noopener noreferrer">Ver proyecto <i class="fas fa-arrow-right"></i></a>
+                </article>
+                <article class="project-card">
+                    <img src="https://source.unsplash.com/400x250/?app,code" alt="Proyecto 3" />
+                    <h3>Blog Técnico</h3>
+                    <p>Blog de tecnología con artículos y tutoriales usando JAMstack y markdown.</p>
+                    <a href="#" target="_blank" rel="noopener noreferrer">Ver proyecto <i class="fas fa-arrow-right"></i></a>
+                </article>
+            </div>
+        </section>
+
+        <section id="experiencia-academica" aria-label="Experiencia académica">
+            <h2><i class="fas fa-graduation-cap"></i> Experiencia Académica</h2>
+            <ul class="experience-list">
+                <li>
+                    <i class="fas fa-school"></i>
+                    <strong>Licenciatura en Ingeniería en Sistemas</strong>
+                    <span>Universidad cesmag, 2016 - 2020</span>
+                </li>
+                <li>
+                    <i class="fas fa-certificate"></i>
+                    <strong>Curso de Desarrollo Web Full Stack</strong>
+                    <span>Platzi, 2021</span>
+                </li>
+                <li>
+                    <i class="fas fa-book"></i>
+                    <strong>Certificación JavaScript Avanzado</strong>
+                    <span>FreeCodeCamp, 2022</span>
+                </li>
+            </ul>
+        </section>
+
+        <section id="experiencia-personal" aria-label="Experiencia personal">
+            <h2><i class="fas fa-briefcase"></i> Experiencia Personal</h2>
+            <ul class="experience-list">
+                <li>
+                    <i class="fas fa-laptop-code"></i>
+                    <strong>Desarrollador Frontend</strong>
+                    <span>Empresa TechSoft, 2020 - Presente</span>
+                </li>
+                <li>
+                    <i class="fas fa-code-branch"></i>
+                    <strong>Colaborador Open Source</strong>
+                    <span>Proyectos GitHub, 2019 - Presente</span>
+                </li>
+                <li>
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <strong>Mentor de Programación</strong>
+                    <span>Comunidades de Desarrolladores, 2021 - Presente</span>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        &copy; 2024 Byron Lòpez. Todos los derechos reservados.
+    </footer>
+</body>
+</html>
+
